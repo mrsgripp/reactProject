@@ -1,41 +1,26 @@
 import React from "react";
 import logo from "./logo.svg";
 import * as ReactDOM from "react-dom/client";
+import { createRoot } from "react-dom/client";
 import "./App.css";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Root from "./routes/root";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { NavigationFunction } from "./components/components/Navigation";
+import { SellerPage } from "./components/pages/SellerPage";
+import { ProductPage } from "./components/pages/ProductPage";
 
-const root = ReactDOM.createRoot(document.getElementById("root") as Element);
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Root />,
-  },
-]);
-
-root.render(
-  <React.StrictMode>
-    <RouterProvider router={router} />
-  </React.StrictMode>
-);
+//export const UserContext = createContext("none");
+const root = createRoot(document.getElementById("root")!);
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>
+        <NavigationFunction></NavigationFunction>
+        <Routes>
+          <Route path="Sellers" element={<SellerPage></SellerPage>} />
+          <Route path="Products" element={<ProductPage></ProductPage>} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
