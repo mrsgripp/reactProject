@@ -1,7 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { getAllProducts } from "../../services/ProductAPIService";
+import { ProductList } from "../components/ProductList";
+import { ProductForm } from "../components/ProductInput";
+import { Link } from "react-router-dom";
+
 
 export function ProductPage() {
+
+  const [prodcutAction, setProductAction] = useState("");
+
   function getProducts() {
     getAllProducts()
       .then((response) => {
@@ -11,6 +18,10 @@ export function ProductPage() {
         console.log(json);
       });
   }
+
+  function addProduct() {
+
+  }
   // function postSeller(){
   //     postSomeSeller()
   //     .then(response => {return response.json()})
@@ -19,9 +30,14 @@ export function ProductPage() {
   // }
   return (
     <>
-      <div>
-        <button onClick={getProducts}>test i can get all products</button>
-      </div>
+      <h1>All Products</h1>
+      <Link to="ProductInput">Add Product</Link>
+     <ProductList></ProductList>
+     <br/>
+     <button onClick={() => { setProductAction("Add") }}>Add Product</button>
+     <ProductForm></ProductForm>
+
+
     </>
   );
 }
