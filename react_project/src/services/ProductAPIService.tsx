@@ -12,3 +12,12 @@ export function postProductAPI(data: Product) {
     body: JSON.stringify(data),
   });
 }
+
+// export function updateProduct(data: Product) {
+//   return fetch(apiBaseURL + "product/" + {data.id}, {
+//     method: "PUT",
+//     mode: "cors",
+//     headers: { "Content-Type": "application/json" },
+//     body: JSON.stringify(data),
+//   });
+// }
