@@ -9,7 +9,7 @@ import { SellerPage } from "./components/pages/SellerPage";
 import { ProductPage } from "./components/pages/ProductPage";
 
 //export const UserContext = createContext("none");
-const root = createRoot(document.getElementById("root")!);
+//const root = createRoot(document.getElementById("root")!);
 
 function App() {
   return (
