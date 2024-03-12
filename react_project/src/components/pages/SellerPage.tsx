@@ -1,5 +1,9 @@
 import React from "react";
-import { getAllSellers } from "../../services/SellerAPIService";
+import { getAllSellers, postSomeSeller } from "../../services/SellerAPIService";
+import { SellerList } from "../components/SellerList";
+import { SellerInput } from "../components/SellerInput";
+import { SingleSeller } from "../components/SingleSeller";
+//import Card from
 
 export function SellerPage() {
   function getSellers() {
@@ -11,16 +15,23 @@ export function SellerPage() {
         console.log(json);
       });
   }
-  // function postSeller(){
-  //     postSomeSeller()
-  //     .then(response => {return response.json()})
-  //     .then(json => {console.log(json)})
-  //     .catch(error => {console.log(error)})
-  // }
+  /* function postSeller() {
+    postSomeSeller(seller)
+      .then((response) => {
+        return response.json();
+      })
+      .then((json) => {
+        console.log(json);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }*/
   return (
     <>
       <div>
-        <button onClick={getSellers}>test i can get all sellers</button>
+        <SellerList></SellerList>
+        <SellerInput></SellerInput>
       </div>
     </>
   );

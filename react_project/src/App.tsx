@@ -11,7 +11,7 @@ import { ProductInputPage } from "./components/pages/ProductInputPage";
 
 
 //export const UserContext = createContext("none");
-const root = createRoot(document.getElementById("root")!);
+//const root = createRoot(document.getElementById("root")!);
 
 function App() {
   return (
