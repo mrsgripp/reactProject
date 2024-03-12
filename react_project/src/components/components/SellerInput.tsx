@@ -23,8 +23,7 @@ export function SellerInput() {
       id: userInput2,
     };
     postSomeSeller(seller);
-    //const newSellerList = allSellers.concat(seller);
-    //setAllSellers(newSellerList);
+    window.location.reload();
   }
 
   return (

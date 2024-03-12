@@ -4,9 +4,7 @@ import { ProductList } from "../components/ProductList";
 import { ProductForm } from "../components/ProductInput";
 import { Link } from "react-router-dom";
 
-
 export function ProductPage() {
-
   const [prodcutAction, setProductAction] = useState("");
 
   function getProducts() {
@@ -19,9 +17,7 @@ export function ProductPage() {
       });
   }
 
-  function addProduct() {
-
-  }
+  function addProduct() {}
   // function postSeller(){
   //     postSomeSeller()
   //     .then(response => {return response.json()})
@@ -31,13 +27,12 @@ export function ProductPage() {
   return (
     <>
       <h1>All Products</h1>
-      <Link to="ProductInput">Add Product</Link>
-     <ProductList></ProductList>
-     <br/>
-     <button onClick={() => { setProductAction("Add") }}>Add Product</button>
-     <ProductForm></ProductForm>
-
-
+      <Link to="ProductInput">
+        <button className="buttons">Add Product</button>
+      </Link>
+      <ProductList></ProductList>
+      <br />
+      <ProductForm></ProductForm>
     </>
   );
 }
