@@ -31,11 +31,11 @@ export function ProductPage() {
   return (
     <>
       <h1>All Products</h1>
-      <Link to="ProductInput">Add Product</Link>
+      <Link to="ProductInput" onClick={() => setProductAction("Add")}>Add Product</Link>
      <ProductList></ProductList>
-     <br/>
-     <button onClick={() => { setProductAction("Add") }}>Add Product</button>
-     <ProductForm></ProductForm>
+     {/* <br/>
+     <button onClick={() => { setProductAction("Add") }}>Add Product</button> */}
+     {/* <ProductForm></ProductForm> */}
 
 
     </>
