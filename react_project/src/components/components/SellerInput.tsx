@@ -5,7 +5,7 @@ import { postSomeSeller } from "../../services/SellerAPIService";
 
 export function SellerInput() {
   const [userInput1, setUserInput1] = useState<string>("");
-  const [userInput2, setUserInput2] = useState<number>();
+  const [userInput2, setUserInput2] = useState<number>(0);
 
   function sellerNameInput(event: SyntheticEvent) {
     let textBox = event.target as HTMLTextAreaElement;
@@ -14,7 +14,7 @@ export function SellerInput() {
 
   function sellerIdInput(event: SyntheticEvent) {
     let textBox = event.target as HTMLTextAreaElement;
-    setUserInput2(textBox.value);
+    setUserInput2(parseInt(textBox.value));
   }
 
   function buttonClickHandler() {
