@@ -1,5 +1,6 @@
 import React from "react";
 import { getAllProducts } from "../../services/ProductAPIService";
+import { ProductList } from "../components/ProductList"
 
 export function ProductPage() {
   function getProducts() {
@@ -19,9 +20,10 @@ export function ProductPage() {
   // }
   return (
     <>
-      <div>
-        <button onClick={getProducts}>test i can get all products</button>
-      </div>
+      <h1>All Products</h1>
+     <ProductList></ProductList>
+
+
     </>
   );
 }
