@@ -10,6 +10,11 @@ export function postProductAPI(data: Product) {
     mode: "cors",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(data),
+  })
+  .then((response) => {
+    if (!response.ok) {
+      alert("Status Code:  " + response.status + " - if in the 4 or 5 ranges, then you're on your own to work it out!");
+    }
   });
 }
 
