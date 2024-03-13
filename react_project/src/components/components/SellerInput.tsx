@@ -1,9 +1,11 @@
 import React, { SyntheticEvent, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Seller } from "../../models/Sellers";
 import { postSomeSeller } from "../../services/SellerAPIService";
 //import { allSellers } from "./SellerList";
 
 export function SellerInput() {
+  const navigate = useNavigate();
   const [userInput1, setUserInput1] = useState<string>("");
   const [userInput2, setUserInput2] = useState<number>(0);
 
@@ -23,6 +25,7 @@ export function SellerInput() {
       id: userInput2,
     };
     postSomeSeller(seller);
+    navigate("../Sellers");
     window.location.reload();
   }
 
