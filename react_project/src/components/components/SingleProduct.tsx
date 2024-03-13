@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { Product } from "../../models/Products";
+import { deleteProduct } from "../../services/ProductAPIService";
 interface propsInterface {
   data: Product;
 }
@@ -20,6 +21,13 @@ export function SingleProduct(props: propsInterface) {
 
   function closeOptionsHandler() {
     setOptionsDisplay(false);
+  }
+
+  function deleteAProduct() {
+    alert("Are You Sure You Want To Delete This Product?");
+    alert(`Product has been deleted`);
+    deleteProduct(props.data.id);
+    window.location.reload();
   }
 
   return (
@@ -42,7 +50,9 @@ export function SingleProduct(props: propsInterface) {
           <Link to="ProductInput" onClick={() => UpdateFlag()}>
             <button className="buttons">Update Product</button>
           </Link>
-          <button className="buttons"> Delete Product</button>
+          <button className="buttons" onClick={deleteAProduct}>
+            Delete Product
+          </button>
         </>
       ) : (
         <button
