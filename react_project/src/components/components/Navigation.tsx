@@ -12,6 +12,9 @@ export function NavigationFunction() {
           <li>
             <Link to="Sellers">Sellers</Link>
           </li>
+          <li>
+            <Link to="">Home</Link>
+          </li>
         </ul>
       </nav>
     </>

@@ -3,6 +3,7 @@ import { getAllSellers, postSomeSeller } from "../../services/SellerAPIService";
 import { SellerList } from "../components/SellerList";
 import { SellerInput } from "../components/SellerInput";
 import { SingleSeller } from "../components/SingleSeller";
+import { Link } from "react-router-dom";
 //import Card from
 
 export function SellerPage() {
@@ -30,8 +31,11 @@ export function SellerPage() {
   return (
     <>
       <div>
+        <h1>All Sellers</h1>
+        <Link to="/Sellers/SellerInput">
+          <button>Add Seller</button>
+        </Link>
         <SellerList></SellerList>
-        <SellerInput></SellerInput>
       </div>
     </>
   );
