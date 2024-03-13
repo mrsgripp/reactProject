@@ -2,12 +2,15 @@ import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { Product } from "../../models/Products";
 import { deleteProduct } from "../../services/ProductAPIService";
+import { ProductForm } from "./ProductInput"
 interface propsInterface {
   data: Product;
 }
 
-export function UpdateFlag() {
+export function UpdateFlag(props: propsInterface) {
   const setUpdateProduct: boolean = true;
+  console.log("UpdateFlag props.id: " + props.data.id);
+  // ProductForm(props.data.id, props.data.name, props.data.price, props.data.seller, "Update");
   //return setUpdateProduct;
 }
 
@@ -22,6 +25,8 @@ export function SingleProduct(props: propsInterface) {
   function closeOptionsHandler() {
     setOptionsDisplay(false);
   }
+
+  
 
   function deleteAProduct() {
     alert("Are You Sure You Want To Delete This Product?");
@@ -47,7 +52,7 @@ export function SingleProduct(props: propsInterface) {
           >
             Close Options
           </button>
-          <Link to="ProductInput" onClick={() => UpdateFlag()}>
+          <Link to={"ProductInput?product_id=" + props.data.id} onClick={() => UpdateFlag(props)}>
             <button className="buttons">Update Product</button>
           </Link>
           <button className="buttons" onClick={deleteAProduct}>

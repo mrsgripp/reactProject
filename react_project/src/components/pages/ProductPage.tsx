@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { getAllProducts } from "../../services/ProductAPIService";
 import { ProductList } from "../components/ProductList";
 import { ProductForm } from "../components/ProductInput";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export function ProductPage() {
   const [prodcutAction, setProductAction] = useState("");

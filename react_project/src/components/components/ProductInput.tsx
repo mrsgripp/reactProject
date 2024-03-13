@@ -4,15 +4,46 @@ import { Product } from "../../models/Products";
 import { useNavigate } from "react-router-dom";
 
 interface MyProps {
-  productActionProp: string;
+  // productActionProp: string;
 }
 
-export function ProductForm() {
+export function ProductForm(id?:number, productname?:string, price?:number, seller?:number, formAction?:string) {
+  
+  
   const [productIdState, setProductIdState] = useState(0);
   const [productNameState, setProductNameState] = useState("");
   const [productPriceState, setProductPriceState] = useState(0);
   const [productSellerIdState, setProductSellerIdState] = useState(0);
   const [productAction, setProductAction] = useState("Add");
+
+  let newProductId:number = 0;
+  let newProductName:string = "";
+  let newProductPrice:number = 0;
+  let newProductSellerId:number = 0;
+
+ console.log('product input form called.');
+ console.log("id parameter: " + id);
+
+  if (!(typeof id === 'undefined')) {
+    console.log('id not undefined');
+    newProductId = id;
+    console.log(newProductId);
+    // setProductIdState(id); 
+  }
+  if (!(typeof productname === 'undefined')) {
+    newProductName = productname;
+    console.log("newProductName = " + productname);
+    setProductNameState(productname);
+  }
+  if (!(typeof price === 'undefined')) {
+    setProductPriceState(price);
+  }
+  if (!(typeof seller === 'undefined')) {
+    setProductSellerIdState(seller);
+  }
+  if (!(typeof formAction === 'undefined')) {
+    setProductAction(formAction);
+  }
 
   const navigate = useNavigate();
 
@@ -50,6 +81,7 @@ export function ProductForm() {
 
   return (
     <React.Fragment>
+      <>
       <h1>{productAction} Product</h1>
       <form>
         Product Name:{" "}
@@ -63,7 +95,7 @@ export function ProductForm() {
         Product Price:{" "}
         <input
           type="number"
-          value={productPriceState}
+          value={newProductName}
           onChange={(e) => setProductPriceState(parseInt(e.target.value))}
           name="productPriceInput"
         ></input>
@@ -85,6 +117,7 @@ export function ProductForm() {
         ></input>
       </form>
       {setSaveButton()}
+      </>
     </React.Fragment>
   );
 }

@@ -43,6 +43,10 @@ function App() {
             path="Products/ProductInput"
             element={<ProductInputPage></ProductInputPage>}
           />
+            <Route
+            path="Products/ProductInput/:productid"
+            element={<ProductInputPage></ProductInputPage>}
+          />
         </Routes>
       </BrowserRouter>
       <button id="themeButton" onClick={toggleTheme}>

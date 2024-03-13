@@ -26,14 +26,18 @@ export function postProductAPI(data: Product) {
   });
 }
 
-// export function updateProduct(data: Product) {
-//   return fetch(apiBaseURL + "product/" + {data.id}, {
-//     method: "PUT",
-//     mode: "cors",
-//     headers: { "Content-Type": "application/json" },
-//     body: JSON.stringify(data),
-//   });
-// }
+export function updateProduct(data: Product) {
+  return fetch(apiBaseURL + "product/" + data.id, {
+    method: "PUT",
+    mode: "cors",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  });
+}
+
+export function getSingleProduct(id: number) {
+  return fetch(apiBaseURL + `product/${id}`);
+}
 
 export function deleteProduct(id: number) {
   fetch(apiBaseURL + `product/${id}`, {
