@@ -1,8 +1,10 @@
 import React from "react";
+import { useState, useEffect } from "react";
 import logo from "./logo.svg";
 import * as ReactDOM from "react-dom/client";
 import { createRoot } from "react-dom/client";
 import "./App.css";
+import "./darkMode.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { NavigationFunction } from "./components/components/Navigation";
 import { SellerPage } from "./components/pages/SellerPage";
@@ -16,8 +18,16 @@ import { SellerInputPage } from "./components/pages/SellerInputPage";
 //const root = createRoot(document.getElementById("root")!);
 
 function App() {
+  const [theme, setTheme] = useState("light");
+  const toggleTheme = () => {
+    theme === "light" ? setTheme("dark") : setTheme("light");
+  };
+  useEffect(() => {
+    document.body.className = theme;
+  }, [theme]);
+
   return (
-    <div className="App">
+    <div className={`App ${theme}`}>
       <BrowserRouter>
         <NavigationFunction></NavigationFunction>
         <Routes>
@@ -35,6 +45,9 @@ function App() {
           />
         </Routes>
       </BrowserRouter>
+      <button id="themeButton" onClick={toggleTheme}>
+        Toggle Theme
+      </button>
     </div>
   );
 }
