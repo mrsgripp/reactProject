@@ -10,6 +10,19 @@ export function postProductAPI(data: Product) {
     mode: "cors",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(data),
+  }).then((response) => {
+    if (!response.ok) {
+      alert(
+        "Status Code:  " +
+          response.status +
+          "\n" +
+          "Product must have a name," +
+          "\n" +
+          "must be priced above $0," +
+          "\n" +
+          "and seller ID must correspond with an existing seller."
+      );
+    }
   });
 }
 
@@ -21,3 +34,10 @@ export function postProductAPI(data: Product) {
 //     body: JSON.stringify(data),
 //   });
 // }
+
+export function deleteProduct(id: number) {
+  fetch(apiBaseURL + `product/${id}`, {
+    method: "DELETE",
+    mode: "cors",
+  });
+}
