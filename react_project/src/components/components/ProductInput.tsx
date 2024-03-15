@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { postProductAPI } from "../../services/ProductAPIService";
 import { Product } from "../../models/Products";
 import { useNavigate } from "react-router-dom";
+import { SingleProduct } from "./SingleProduct";
 
 interface MyProps {
   productActionProp: string;
@@ -42,7 +43,11 @@ export function ProductForm() {
 
   let setSaveButton = () => {
     if (productAction == "Add") {
-      return <button onClick={callAddProduct}>Save New Product</button>;
+      return (
+        <button className="buttons" onClick={callAddProduct}>
+          Save New Product
+        </button>
+      );
     } else if (productAction == "Update") {
       return <button>Update Product</button>;
     }

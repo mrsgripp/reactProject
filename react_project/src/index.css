@@ -48,3 +48,16 @@ code {
   border-right: 0;
   border-radius: 0 4px 4px 0;
 }
+
+.buttons  {
+background: #395870;
+  background: linear-gradient(#49708f, #293f50);
+  border-right: 1px solid rgba(0, 0, 0, .3);
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  margin-left: auto;
+  margin-right:auto;
+  padding: 12px 20px;
+  text-transform: uppercase;
+  font: bold 11px "Helvetica Neue", Helvetica, Arial, sans-serif;
+}

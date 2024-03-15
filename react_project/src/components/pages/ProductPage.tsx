@@ -29,7 +29,7 @@ export function ProductPage() {
       <h1>All Products</h1>
 
       <Link to="ProductInput" onClick={() => setProductAction("Add")}>
-        <button>Add Product</button>
+        <button className="buttons">Add Product</button>
       </Link>
       <ProductList></ProductList>
       {/* <br/>

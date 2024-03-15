@@ -33,7 +33,7 @@ export function SellerPage() {
       <div>
         <h1>All Sellers</h1>
         <Link to="/Sellers/SellerInput">
-          <button>Add Seller</button>
+          <button className="buttons">Add Seller</button>
         </Link>
         <SellerList></SellerList>
       </div>

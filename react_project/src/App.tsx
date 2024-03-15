@@ -13,11 +13,18 @@ import { ProductInputPage } from "./components/pages/ProductInputPage";
 import { PageNotFoundPage } from "./components/pages/PageNotFoundPage";
 import { LandingPage } from "./components/pages/LandingPage";
 import { SellerInputPage } from "./components/pages/SellerInputPage";
+import { UpdateProduct } from "./components/components/UpdateProduct";
+//import { UpdateProductPage } from "./components/pages/UpdateProductPage";
+import { Product } from "./models/Products";
 
 //export const UserContext = createContext("none");
 //const root = createRoot(document.getElementById("root")!);
 
-function App() {
+interface propsInterface {
+  data: Product;
+}
+
+function App(props: any) {
   const [theme, setTheme] = useState("light");
   const toggleTheme = () => {
     theme === "light" ? setTheme("dark") : setTheme("light");
@@ -45,7 +52,7 @@ function App() {
           />
         </Routes>
       </BrowserRouter>
-      <button id="themeButton" onClick={toggleTheme}>
+      <button className="buttons" id="themeButton" onClick={toggleTheme}>
         Toggle Theme
       </button>
     </div>
