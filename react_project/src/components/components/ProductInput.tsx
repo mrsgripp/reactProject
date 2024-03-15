@@ -8,7 +8,7 @@ interface MyProps {
   productActionProp: string;
 }
 
-export function ProductForm({ updateProduct }: any) {
+export function ProductForm() {
   const [productIdState, setProductIdState] = useState(0);
   const [productNameState, setProductNameState] = useState("");
   const [productPriceState, setProductPriceState] = useState(0);
@@ -17,21 +17,13 @@ export function ProductForm({ updateProduct }: any) {
 
   const navigate = useNavigate();
 
-  let onChangeText: any = { updateProduct };
-
-  //let checkProductIdEnabled = (newProductId: number) => {
-  //  if (productAction == "Add") {
-  //    setProductIdState(newProductId);
-  //  } else {
-  //    onChangeText = "";
-  //  }
-  //};
+  let onChangeText: string = "";
 
   let checkProductIdEnabled = (newProductId: number) => {
-    if (onChangeText == "Update") {
-      setProductAction("Update");
-    } else {
+    if (productAction == "Add") {
       setProductIdState(newProductId);
+    } else {
+      onChangeText = "";
     }
   };
 
@@ -51,7 +43,11 @@ export function ProductForm({ updateProduct }: any) {
 
   let setSaveButton = () => {
     if (productAction == "Add") {
-      return <button onClick={callAddProduct}>Save New Product</button>;
+      return (
+        <button className="buttons" onClick={callAddProduct}>
+          Save New Product
+        </button>
+      );
     } else if (productAction == "Update") {
       return <button>Update Product</button>;
     }

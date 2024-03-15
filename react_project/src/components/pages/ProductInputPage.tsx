@@ -3,14 +3,9 @@ import React, { useState } from "react";
 import { ProductForm } from "../components/ProductInput";
 
 export function ProductInputPage() {
-
   const [prodcutAction, setProductAction] = useState("");
 
-
-
-  function addProduct() {
-    
-  }
+  function addProduct() {}
   // function postSeller(){
   //     postSomeSeller()
   //     .then(response => {return response.json()})
@@ -19,10 +14,7 @@ export function ProductInputPage() {
   // }
   return (
     <>
-
-     <ProductForm></ProductForm>
-
-
+      <ProductForm></ProductForm>
     </>
   );
 }

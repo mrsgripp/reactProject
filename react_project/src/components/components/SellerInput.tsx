@@ -44,7 +44,9 @@ export function SellerInput() {
           value={userInput2}
         ></input>
       </div>
-      <button onClick={buttonClickHandler}>submit</button>
+      <button className="buttons" onClick={buttonClickHandler}>
+        submit
+      </button>
     </>
   );
 }

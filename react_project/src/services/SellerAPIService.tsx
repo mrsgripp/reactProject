@@ -10,5 +10,16 @@ export function postSomeSeller(data: Seller) {
     mode: "cors",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(data),
+  }).then((response) => {
+    if (!response.ok) {
+      alert(
+        "Status Code:  " +
+          response.status +
+          "\n" +
+          "Seller must have a name," +
+          "\n" +
+          "and Seller ID must be unique"
+      );
+    }
   });
 }
