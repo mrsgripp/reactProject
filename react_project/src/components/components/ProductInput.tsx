@@ -2,12 +2,13 @@ import React, { useState } from "react";
 import { postProductAPI } from "../../services/ProductAPIService";
 import { Product } from "../../models/Products";
 import { useNavigate } from "react-router-dom";
+import { SingleProduct } from "./SingleProduct";
 
 interface MyProps {
   productActionProp: string;
 }
 
-export function ProductForm() {
+export function ProductForm({ updateProduct }: any) {
   const [productIdState, setProductIdState] = useState(0);
   const [productNameState, setProductNameState] = useState("");
   const [productPriceState, setProductPriceState] = useState(0);
@@ -16,13 +17,21 @@ export function ProductForm() {
 
   const navigate = useNavigate();
 
-  let onChangeText: string = "";
+  let onChangeText: any = { updateProduct };
+
+  //let checkProductIdEnabled = (newProductId: number) => {
+  //  if (productAction == "Add") {
+  //    setProductIdState(newProductId);
+  //  } else {
+  //    onChangeText = "";
+  //  }
+  //};
 
   let checkProductIdEnabled = (newProductId: number) => {
-    if (productAction == "Add") {
-      setProductIdState(newProductId);
+    if (onChangeText == "Update") {
+      setProductAction("Update");
     } else {
-      onChangeText = "";
+      setProductIdState(newProductId);
     }
   };
 
