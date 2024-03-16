@@ -52,7 +52,8 @@ export function SingleProduct(props: propsInterface) {
           >
             Close Options
           </button>
-          <Link to={"ProductInput?product_id=" + props.data.id} onClick={() => UpdateFlag(props)}>
+          {/* <Link to={"ProductInput?product_id=" + props.data.id} onClick={() => UpdateFlag(props)}> */}
+          <Link to={"ProductInput?product_id=" + props.data.id} >
             <button className="buttons">Update Product</button>
           </Link>
           <button className="buttons" onClick={deleteAProduct}>

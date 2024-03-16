@@ -4,6 +4,38 @@ import { Product } from "../../models/Products";
 import { getSingleProduct } from "../../services/ProductAPIService";
 
 import { ProductForm } from "../components/ProductInput";
+import { ProductUpdateForm } from "../components/productUpdate";
+// import { getProductforUpdate } from "../components/ProductList";
+
+
+
+// async function getProductInputForm (product_id:number) {
+
+//   const [inputFormCommand, setInputFormCommand] = useState("");
+//   const [allProducts, setAllProducts] = useState<Product[]>([]);
+
+
+//   async function singleProduct(){
+ 
+    
+//     // useEffect(()=>{
+//         getSingleProduct(product_id)
+//         .then(response=>{return response.json()})
+//         .then(json=>{
+//             setAllProducts(json)
+//         }).then(thing=> {
+//           setInputFormCommand("ProductForm(" + allProducts[0].id + ", " + allProducts[0]?.name + ", " + allProducts[0]?.price + ", " + allProducts[0]?.seller + ", \"Update\")");
+//           return inputFormCommand;
+//         })
+//         ;
+//     // }, []);
+
+
+// return inputFormCommand;
+// }
+// }
+
+
 
 export function ProductInputPage() {
 
@@ -16,48 +48,67 @@ export function ProductInputPage() {
 
   let productIDParam = useSearchParams();
   let productParamValue:string = "";
-  let productIdValue:number = 0;
+  let productIdValue:string = "";
+  let productIdNumber:number = 0;
 
 
-  let singleProducts:Product[] = [];
-  let singleJSONProduct:string = "";
+  // const [inputFormCommand, setInputFormCommand] = useState("");
+  // const [allProducts, setAllProducts] = useState<Product[]>([]);
+  let returnProductModel:Product[] = [];
+  
 
-  if ((productIDParam[0].get("product_id"))) {
-    productParamValue = productIDParam[0].get("product_id") || "";
-    productIdValue = parseInt(productParamValue);
+  // async function getProductInputForm (product_id:number) {
 
-    // const [singleProducts, setSingleProducts] = useState<Product[]>([])
-    
-    // useEffect(()=>{
+  //   async function SingleProduct(product_id:number){
+   
+  //     console.log ("SingleProduct call beginning");
+
+
+
+  //     // console.log("getSingleProductModel response: " + getSingleProductModel(product_id));
       
-        getSingleProduct(productIdValue)
-        .then(response=>{return response.json()})
-        .then(json=>{
-            singleProducts = JSON.parse(json);
-        });
-    // }, []);
+  //     // useEffect(()=>{
+  //         getSingleProduct(product_id)
+  //         .then(response=>{return response.json();})
+  //         .then(json => {returnProductModel[0] = json;
+  //         })
+  //         // .then(thing=> {
+  //         //   setInputFormCommand(allProducts[0].id + ", " + allProducts[0]?.name + ", " + allProducts[0]?.price + ", " + allProducts[0]?.seller + ", \"Update\"");
+  //         // })
+  //         ;
+  //     // }, []);
 
+  // }
 
-  // });
+//   singleProduct();
 
-    return ProductForm(singleProducts[0]?.id, singleProducts[0]?.name, singleProducts[0]?.price, singleProducts[0]?.seller, "Update");
-  }
+// }
+ 
+//  console.log("singleProductModel length: " + returnProductModel.length);
 
   
- 
 
-  // const [prodcutAction, setProductAction] = useState("");
+  if ((productIDParam[0].get("product_id"))) {
+    productIdValue = productIDParam[0].get("product_id") || "";
+    productIdNumber = parseInt(productIdValue);
 
+    console.log("Test if product_id read correctly: " + productIdValue);
 
+    // SingleProduct(productIdNumber);
 
-  // function addProduct() {
-    
-  // }
-  // function postSeller(){
-  //     postSomeSeller()
-  //     .then(response => {return response.json()})
-  //     .then(json => {console.log(json)})
-  //     .catch(error => {console.log(error)})
-  // }
+    // console.log("Product ID: " + returnProductModel[0].id);
+
+   
+
+  // } 
+  
+  
+  // if (returnProductModel.length > 0) {
+    // return ProductForm(allProducts[0].id ,allProducts[0].name, allProducts[0].price, allProducts[0].seller, "Update" );
+    console.log("returnProductModel length greater than 0");
+    return ProductUpdateForm(productIdNumber, "Update");
+  } else {
   return ProductForm();
+  }
+
 }

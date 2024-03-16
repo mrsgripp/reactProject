@@ -34,7 +34,6 @@ function App() {
           <Route path="/" element={<LandingPage></LandingPage>} />
           <Route path="Sellers" element={<SellerPage></SellerPage>} />
           <Route path="Products" element={<ProductPage></ProductPage>} />
-          <Route path="*" element={<PageNotFoundPage></PageNotFoundPage>} />
           <Route
             path="Sellers/SellerInput"
             element={<SellerInputPage></SellerInputPage>}
@@ -43,10 +42,7 @@ function App() {
             path="Products/ProductInput"
             element={<ProductInputPage></ProductInputPage>}
           />
-            <Route
-            path="Products/ProductInput/:productid"
-            element={<ProductInputPage></ProductInputPage>}
-          />
+          <Route path="*" element={<PageNotFoundPage></PageNotFoundPage>} />
         </Routes>
       </BrowserRouter>
       <button id="themeButton" onClick={toggleTheme}>

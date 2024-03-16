@@ -36,8 +36,9 @@ export function updateProduct(data: Product) {
 }
 
 export function getSingleProduct(id: number) {
-  return fetch(apiBaseURL + `product/${id}`);
+  return fetch(apiBaseURL + "product/"+id);
 }
+
 
 export function deleteProduct(id: number) {
   fetch(apiBaseURL + `product/${id}`, {

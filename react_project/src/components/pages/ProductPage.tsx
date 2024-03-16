@@ -1,21 +1,21 @@
-import React, { useState } from "react";
-import { getAllProducts } from "../../services/ProductAPIService";
+// import React, { useState } from "react";
+// import { getAllProducts } from "../../services/ProductAPIService";
 import { ProductList } from "../components/ProductList";
-import { ProductForm } from "../components/ProductInput";
+// import { ProductForm } from "../components/ProductInput";
 import { Link, useNavigate } from "react-router-dom";
 
 export function ProductPage() {
-  const [prodcutAction, setProductAction] = useState("");
+  // const [productAction, setProductAction] = useState("");
 
-  function getProducts() {
-    getAllProducts()
-      .then((response) => {
-        return response.json();
-      })
-      .then((json) => {
-        console.log(json);
-      });
-  }
+  // function getProducts() {
+  //   getAllProducts()
+  //     .then((response) => {
+  //       return response.json();
+  //     })
+  //     .then((json) => {
+  //       console.log(json);
+  //     });
+  // }
 
   function addProduct() {}
   // function postSeller(){
@@ -28,7 +28,8 @@ export function ProductPage() {
     <>
       <h1>All Products</h1>
 
-      <Link to="ProductInput" onClick={() => setProductAction("Add")}>
+      {/* <Link to="ProductInput" onClick={() => setProductAction("Add")}> */}
+      <Link to="ProductInput" >
         <button>Add Product</button>
       </Link>
       <ProductList></ProductList>
